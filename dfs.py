@@ -4,7 +4,7 @@ i, j = 0, 0  # 搜索的起始位置
 
 def dfs(i, j):
 
-    if i, j 满足某种条件:    # 有明确终点时使用，可有可无
+    if i, j, matrix[new_X, new_Y] 满足某种条件:    # 有明确终点时使用，可有可无
         // 执行操作如输出路径等
         return
 
@@ -14,10 +14,10 @@ def dfs(i, j):
         new_Y = j + direction_Y
 
         # 可通过改变和筛选matrix[new_X, new_Y]的值来避免重复或逆向搜索
-        if new_X, new_Y, matrix[new_X, new_Y] 满足某种条件,例如坐标越界或遇到障碍物等:
-            continue
-        #执行操作
-        dfs(new_X, new_Y)  # 深度遍历
-        # 遍历结束恢复操作
+        if new_X, new_Y 满足某种条件 或 matrix[new_X, new_Y] == 0:  # 如果没有搜索过这个端点
+            matrix[new_X, new_Y] == 1  # //将该端点设置为走过
+            #执行操作
+            dfs(new_X, new_Y)  # 深度遍历，递归下去
+            matrix[new_X, new_Y] == 0  # 回溯
 
 dfs(i, j)
