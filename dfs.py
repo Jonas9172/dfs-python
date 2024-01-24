@@ -21,3 +21,27 @@ def dfs(i, j):
             matrix[new_X, new_Y] == 0  # 回溯
 
 dfs(i, j)
+
+
+
+考古学家答案：
+n = int(input())
+s = input().split()
+a = set()
+path = []
+used = [0]*n
+def dfs():
+    if len(path) == n:
+        a.add(''.join(path))
+        return
+    for i in range(n):
+        if used[i]:
+            continue
+        path.append(s[i])
+        used[i] = 1
+        dfs()
+        path.pop()
+        used[i] = 0
+dfs()
+for each in sorted(list(a)):
+    print(each)
