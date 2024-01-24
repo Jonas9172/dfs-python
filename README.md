@@ -54,3 +54,8 @@ abab
 abba
 baab
 baba
+
+思路：
+
+<img width="475" alt="屏幕截图 2024-01-24 214710" src="https://github.com/Jonas9172/dfs-python/assets/105164575/e0093e3b-161a-494e-8aa7-86e029e70a58">
+
