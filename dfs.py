@@ -45,3 +45,30 @@ def dfs():
 dfs()
 for each in sorted(list(a)):
     print(each)
+
+
+迷宫答案：
+n, m = list(map(int, input().split()))
+maze = []
+for i in range(n):
+    maze.append(input().split())
+
+path = [(0,0)]
+d = ((1,0),(-1,0),(0,1),(0,-1))
+p = []
+def dfs(x,y):
+    maze[x][y] = '1'
+    if x == n-1 and y == m-1:
+        for i in range(len(path)):
+            print('({},{})'.format(path[i][0],path[i][1]))
+        return 
+    for x_d, y_d in d:
+        new_x = x + x_d
+        new_y = y + y_d
+        if 0 <= new_x < n and 0 <= new_y < m and maze[new_x][new_y] == '0':
+            path.append((new_x,new_y))
+            dfs(new_x,new_y)
+            path.pop()
+            maze[new_x][new_y] = '0'
+
+dfs(0,0)
